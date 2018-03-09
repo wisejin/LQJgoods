@@ -1,0 +1,14 @@
+platform:ios, '9.0'
+
+target "LQJGoods" do
+pod 'Reachability', '3.1.0'
+pod 'Masonry'
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'TPKeyboardAvoiding'
+pod 'MBProgressHUD'
+pod 'SVProgressHUD'
+pod 'FMDB'
+end

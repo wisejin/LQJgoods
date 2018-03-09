@@ -1,0 +1,26 @@
+ NSDirectoryEnumerator *dirEnumerater = [fm enumeratorAtPath:dir];
+    NSString *filePath = nil;
+    while (nil != (filePath = [dirEnumerater nextObject])) {
+        NSString *msgdir = [NSString stringWithFormat:@"%@/localFile/%@",kDocumentsPath,filePath];
+        BOOL isDir;
+        if ([fm fileExistsAtPath:msgdir isDirectory:&isDir]) {
+            if (!isDir) {
+                //删除掉不相关文件
+                if ([[filePath lastPathComponent] isEqualToString:@".DS_Store"]) {
+                    continue;
+                }
+                if ([[filePath lastPathComponent] isEqualToString:@"index.htm"]) {
+                    continue;
+                }
+                if ([[filePath lastPathComponent] isEqualToString:@"index.html"]) {
+                    continue;
+                }
+                
+                
+　　　　　　//文件名
+                NSString *fileNameStr = [filePath lastPathComponent];
+                //文件路径
+                NSString *filePath = msgdir;
+                //文件修改时间
+                NSDictionary *attributes = [fm attributesOfItemAtPath:msgdir error:nil];
+                NSDate *theModifiDate;
